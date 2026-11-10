@@ -1,0 +1,99 @@
+
+<svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="390"
+        height="90"
+        viewBox="0 0 390 90"
+        fill="none">
+
+    <defs>
+        <!-- Green and Cyan Gradient -->
+        <linearGradient
+                id="markGradient"
+                x1="10" y1="8" x2="76" y2="80"
+                gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#31F6A0"/>
+            <stop offset="100%" stop-color="#00C9D9"/>
+        </linearGradient>
+
+        <!-- Silver White Gradient -->
+        <linearGradient
+                id="textGradient"
+                x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#FFFFFF"/>
+            <stop offset="100%" stop-color="#D2D9E1"/>
+        </linearGradient>
+
+        <!-- Neon Glow -->
+        <filter
+                id="glow"
+                x="-50%" y="-50%"
+                width="200%" height="200%">
+            <feGaussianBlur
+                    stdDeviation="2.2"
+                    result="blur"/>
+            <feMerge>
+                <feMergeNode in="blur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+
+    <!-- Complete 360 Degree Circle -->
+    <circle
+            cx="39"
+            cy="45"
+            r="30"
+            stroke="url(#textGradient)"
+            stroke-width="6.5"
+            fill="none"/>
+
+    <!-- Stylish Q Tail -->
+    <path
+            d="M59 65 L66 72"
+            stroke="url(#markGradient)"
+            stroke-width="6.5"
+            stroke-linecap="round"/>
+
+    <!-- Candlestick Chart -->
+    <g stroke="#18EBA0" stroke-width="2.3">
+        <path d="M24 40V59"/>
+        <path d="M35 29V52"/>
+        <path d="M46 21V47"/>
+        <path d="M57 28V42"/>
+    </g>
+
+    <g fill="#18EBA0">
+        <rect x="20" y="43" width="8" height="11" rx="1"/>
+        <rect x="31" y="34" width="8" height="13" rx="1"/>
+        <rect x="42" y="25" width="8" height="15" rx="1"/>
+        <rect x="53" y="30" width="8" height="9" rx="1"/>
+    </g>
+
+    <!-- Rising Market Arrow -->
+    <path
+            d="M13 64 Q34 54 57 27 L69 15"
+            stroke="url(#markGradient)"
+            stroke-width="4.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            fill="none"
+            filter="url(#glow)"/>
+
+    <!-- Arrow Head -->
+    <path
+            d="M58 15 L73 9 L69 25 Z"
+            fill="#31F6A0"
+            filter="url(#glow)"/>
+
+    <!-- QuantX Brand Typography -->
+    <text
+            x="91"
+            y="61"
+            font-family="Inter, Arial, sans-serif"
+            font-size="51"
+            font-weight="750"
+            letter-spacing="-2.5"
+            fill="url(#textGradient)">Quant<tspan fill="url(#markGradient)">X</tspan></text>
+
+</svg>
