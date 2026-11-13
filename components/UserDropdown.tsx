@@ -4,19 +4,19 @@ import * as React from "react";
 import { useRouter } from "next/navigation";
 import { LogOut } from "lucide-react";
 
-// Shadcn UI Components
 import {
     DropdownMenu,
     DropdownMenuContent,
+    DropdownMenuGroup,
     DropdownMenuItem,
     DropdownMenuLabel,
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import NavItems from "@/components/NavItems";
 
-export default function UserDropdown(): React.JSX.Element {
+const UserDropdown = () => {
     const router = useRouter();
 
     const handleSignOut = async () => {
@@ -29,9 +29,8 @@ export default function UserDropdown(): React.JSX.Element {
         <DropdownMenu>
             <DropdownMenuTrigger className="flex items-center gap-3 text-gray-400 hover:text-yellow-500 bg-transparent hover:bg-transparent border-none outline-none focus:outline-none cursor-pointer p-2 rounded-md transition-colors">
                 <Avatar className="h-8 w-8">
-                    <AvatarImage src="https://github.com" alt={user.name} />
                     <AvatarFallback className="bg-yellow-500 text-yellow-900 text-sm font-bold">
-                        {user.name[0]}
+                        {user.name.charAt(0)}
                     </AvatarFallback>
                 </Avatar>
                 <div className="hidden md:flex flex-col items-start">
@@ -42,22 +41,23 @@ export default function UserDropdown(): React.JSX.Element {
             </DropdownMenuTrigger>
 
             <DropdownMenuContent className="text-gray-400">
-                <DropdownMenuLabel>
-                    <div className="flex relative items-center gap-3 py-2">
-                        <Avatar className="h-10 w-10">
-                            <AvatarImage src="https://github.com" alt={user.name} />
-                            <AvatarFallback className="bg-yellow-500 text-yellow-900 text-sm font-bold">
-                                {user.name[0]}
-                            </AvatarFallback>
-                        </Avatar>
-                        <div className="flex flex-col">
-                            <span className="text-base font-medium text-gray-400">
-                                {user.name}
-                            </span>
-                            <span className="text-sm text-gray-500">{user.email}</span>
+                <DropdownMenuGroup>
+                    <DropdownMenuLabel>
+                        <div className="flex relative items-center gap-3 py-2">
+                            <Avatar className="h-10 w-10">
+                                <AvatarFallback className="bg-yellow-500 text-yellow-900 text-sm font-bold">
+                                    {user.name.charAt(0)}
+                                </AvatarFallback>
+                            </Avatar>
+                            <div className="flex flex-col">
+                                <span className="text-base font-medium text-gray-400">
+                                    {user.name}
+                                </span>
+                                <span className="text-sm text-gray-500">{user.email}</span>
+                            </div>
                         </div>
-                    </div>
-                </DropdownMenuLabel>
+                    </DropdownMenuLabel>
+                </DropdownMenuGroup>
 
                 <DropdownMenuSeparator className="bg-gray-600" />
 
@@ -69,7 +69,7 @@ export default function UserDropdown(): React.JSX.Element {
                     Logout
                 </DropdownMenuItem>
 
-                <DropdownMenuSeparator className="hidden sm:block bg-gray-600" />
+                <DropdownMenuSeparator className="sm:hidden bg-gray-600" />
 
                 <nav className="sm:hidden">
                     <NavItems />
@@ -77,4 +77,6 @@ export default function UserDropdown(): React.JSX.Element {
             </DropdownMenuContent>
         </DropdownMenu>
     );
-}
+};
+
+export default UserDropdown;

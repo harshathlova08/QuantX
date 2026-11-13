@@ -1,5 +1,5 @@
-export const NAV_ITEMS: { href: string; title: string }[] = [
-    { href: '/', title: 'Dashboard' },
-    { href: '/search', title: 'Search' },
-    { href: '/watchlist', title: 'Watchlist' },
-]
+export const NAV_ITEMS = [
+    { href: '/', label: 'Dashboard' },
+    { href: '/search', label: 'Search' },
+    { href: '/watchlist', label: 'Watchlist' },
+];
